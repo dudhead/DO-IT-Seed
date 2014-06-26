@@ -7,14 +7,17 @@ angular.module(
 				'ui.bootstrap', 'myApp.controllers' ]).config(
 		[ '$routeProvider', '$locationProvider',
 				function($routeProvider, $locationProvider) {
-//					$locationProvider.html5Mode(true);
-					$routeProvider.when('/createproject', {
-						templateUrl : 'partials/createproject.html',
-						controller : 'CreateProjectController'
-					}).when('/view2', {
-						templateUrl : 'partials/view2.html',
-						controller : 'MyCtrl1'
+					// $locationProvider.html5Mode(true);
+					$routeProvider.when('/listproject', {
+						templateUrl : 'partials/listproject.html',
+						controller : 'ListProjectController'
+					}).when('/projectdetail/:projectId', {
+						templateUrl : 'partials/projectdetail.html',
+						controller : 'ProjectDetailController'
+					}).otherwise({
+						redirectTo : '/listproject'
 					});
+					;
 				} ]);
 
 angular.module('myApp').constant('appSettings', {
