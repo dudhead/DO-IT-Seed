@@ -1,0 +1,26 @@
+<div class="jumbotron">
+	<div>
+		<div class="table-responsive">
+			<table class="table table-bordered">
+				<tr>
+					<th>Product Name</th>
+					<th>Description</th>
+					<th>coordinators</th>
+					<th>select</th>
+				</tr>
+				<tr ng-repeat="project in projects">
+					<td>{{project.name}}</td>
+					<td>{{project.description}}</td>
+					<td><span ng-repeat="coordinator in project.coordinators">
+							{{coordinator}} <span ng-show="!$last">, </span>
+					</span></td>
+					<td><div class="radio">
+							<label> <input type="radio" name="optionsRadios">
+							</label>
+						</div></td>
+				</tr>
+
+			</table>
+		</div>
+	</div>
+</div>
