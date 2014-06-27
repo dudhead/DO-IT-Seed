@@ -14,6 +14,9 @@ angular.module(
 					}).when('/projectdetail/:projectId', {
 						templateUrl : 'partials/projectdetail.html',
 						controller : 'ProjectDetailController'
+					}).when('"/createProject"', {
+						templateUrl : 'partials/createproject.html',
+						controller : 'ListProjectController'
 					}).otherwise({
 						redirectTo : '/listproject'
 					});

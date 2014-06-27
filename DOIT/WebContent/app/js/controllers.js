@@ -38,7 +38,7 @@ angular.module('myApp.controllers', []).controller('ListProjectController',
 					"description" : "create basic angular project",
 					"dueDate" : "6/20/2014",
 					"createdAt" : "6/14/2014",
-					"isPending" : "true",
+					"isPending" : "false",
 					"assignTo" : "Vaibhav"
 
 				} ]
