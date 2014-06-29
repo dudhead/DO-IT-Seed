@@ -1,37 +1,32 @@
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-	aria-labelledby="myModalLabel" >
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-hidden="true">&times;</button>
-				<h4 class="modal-title " id="myModalLabel">Project</h4>
-			</div>
-			<div class="modal-body">
-				<label class="col-md-12"> Project Name*</label>
-				<div class="col-md-9" id="name">
-					<input type="text" class="form-control" id="name"
-						placeholder="What is your Project Name?" required="required" />
-				</div>
+<div ng-controller="ModalController">
 
-				<label class="col-md-12 ">Description</label>
-				<div class="col-md-9">
-					<input type="text" class="form-control" id="desc"
-						placeholder="Enter Description" multiple="multiple" />
-				</div>
-
-				<label class="col-md-12">Contact Number*</label>
-				<div class="col-md-9">
-					<input type="text" class="form-control" name="contact"
-						placeholder="What is your phone number?" />
-				</div>
-
-
-				<div>
-					<button type="button" class="btn btn-success btn-lg center-block">Send
-						Message</button>
-				</div>
-			</div>
-		</div>
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true" ng-click="cancel()">&times;</button>
+		<h4 class="modal-title " id="myModalLabel">Project</h4>
 	</div>
+	<div class="modal-body">
+		<label class="col-md-12"> Project Name*</label>
+		<div class="col-md-9" id="name">
+			<input type="text" class="form-control" id="name"
+				placeholder="What is your Project Name?" required="required" />
+		</div>
+
+		<label class="col-md-12 ">Description</label>
+		<div class="col-md-9">
+			<input type="text" class="form-control" id="desc"
+				placeholder="Enter Description" multiple="multiple" />
+		</div>
+
+		<label class="col-md-12">add collaborators*</label>
+		<div class="col-md-9">
+			<input type="text" class="form-control" name="contact"
+				placeholder="What is your phone number?" />
+		</div>
+
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" ng-click="ok()">Save</button>
+	</div>
+
 </div>
