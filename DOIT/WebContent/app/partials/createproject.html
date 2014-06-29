@@ -1,32 +1,35 @@
-<div ng-controller="ModalController">
 
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal"
-			aria-hidden="true" ng-click="cancel()">&times;</button>
-		<h4 class="modal-title " id="myModalLabel">Project</h4>
-	</div>
-	<div class="modal-body">
-		<label class="col-md-12"> Project Name*</label>
-		<div class="col-md-9" id="name">
-			<input type="text" class="form-control" id="name"
-				placeholder="What is your Project Name?" required="required" />
+<form class="well">
+	<div ng-controller="ModalController">
+
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true" ng-click="cancel()">&times;</button>
+			<h4 class="modal-title " id="myModalLabel">Project</h4>
+		</div>
+		<div class="modal-body">
+			<label class="col-md-12"> Project Name*</label>
+			<div class="col-md-9" id="name">
+				<input type="text" class="form-control" id="name"
+					placeholder="What is your Project Name?" required="required" ng-model="newproject.name" />
+			</div>
+
+			<label class="col-md-12 ">Description</label>
+			<div class="col-md-9">
+				<input type="text" class="form-control" id="desc"
+					placeholder="Enter Description" multiple="multiple" ng-model="newproject.desc" />
+			</div>
+
+			<label class="col-md-12">add collaborators*</label>
+			<div class="col-md-9">
+				<input type="text" class="form-control" name="contact"
+					placeholder="who si the collaborators?" ng-model="newproject.collaborators"/>
+			</div>
+
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" ng-click="saveProject()">Save</button>
 		</div>
 
-		<label class="col-md-12 ">Description</label>
-		<div class="col-md-9">
-			<input type="text" class="form-control" id="desc"
-				placeholder="Enter Description" multiple="multiple" />
-		</div>
-
-		<label class="col-md-12">add collaborators*</label>
-		<div class="col-md-9">
-			<input type="text" class="form-control" name="contact"
-				placeholder="What is your phone number?" />
-		</div>
-
 	</div>
-	<div class="modal-footer">
-		<button class="btn btn-primary" ng-click="ok()">Save</button>
-	</div>
-
-</div>
+</form>

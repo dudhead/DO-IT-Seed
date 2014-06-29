@@ -19,8 +19,24 @@ module.service('ProjectsService', function() {
 		"coordinators" : [ "ram", "karthik" ],
 	} ];
 
-	// simply returns the contacts list
+	// simply returns the projects list
 	this.list = function() {
 		return projects;
+	};
+
+	this.save = function(project) {
+//		if (project.id == null) {
+			// if this is new project, add it in projects array
+			project.id = ++projects.length;
+			projects.push(project);
+//		} else {
+//			// for existing project, find this project using id
+//			// and update it.
+//			for (i in projects) {
+//				if (projects[i].id == project.id) {
+//					projects[i] = project;
+//				}
+//			}
+//		}
 	};
 });

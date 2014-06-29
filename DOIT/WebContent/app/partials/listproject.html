@@ -1,29 +1,70 @@
-<div class="jumbotron">
-	<h1>Welcome To My Web</h1>
-	<a href="#/listproject">Create Project</a>
-	<div>
-		<div class="table-responsive">
-			<table class="table table-bordered">
-				<tr>
-					<th>Product Name</th>
-					<th>Description</th>
-					<th>coordinators</th>
-					<th>select</th>
-				</tr>
-				<tr ng-repeat="project in projects">
-					<td>{{project.name}}</td>
-					<td>{{project.description}}</td>
-					<td><span ng-repeat="coordinator in project.coordinators">
-							{{coordinator}} <span ng-show="!$last">, </span>
-					</span></td>
-					<td><div class="radio">
-							<a href="#/projectdetail/{{project.id}}"> <input type="radio"
-								name="optionsRadios">
-							</a>
-						</div></td>
-				</tr>
 
-			</table>
+
+<div class="jumbotron">
+	<div>
+		<div class="container-fluid">
+			<div class="row">
+				<div ng-controller="ModalDemoCtrl">
+					<script type="text/ng-template" id="myModalContent.html">
+
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true" ng-click="cancel()">&times;</button>
+			<h4 class="modal-title " id="myModalLabel">Project</h4>
 		</div>
-	</div>
-</div>
+		<div class="modal-body">
+			<label class="col-md-12"> Project Name*</label>
+			<div class="col-md-9" id="name">
+				<input type="text" class="form-control" id="name"
+					placeholder="What is your Project Name?" required="required" ng-model="newproject.name" />
+			</div>
+
+			<label class="col-md-12 ">Description</label>
+			<div class="col-md-9">
+				<input type="text" class="form-control" id="desc"
+					placeholder="Enter Description" multiple="multiple" ng-model="newproject.description" />
+			</div>
+
+			<label class="col-md-12">add collaborators*</label>
+			<div class="col-md-9">
+				<input type="text" class="form-control" name="contact"
+					placeholder="who si the collaborators?" ng-model="newproject.coordinators"/>
+			</div>
+
+		</div>
+		<div class="modal-footer" ng-controller="ListProjectController">
+			<button class="btn btn-primary" ng-click="saveProject()">Save</button>
+		</div>
+
+
+    </script>
+					<h1>Welcome To My Web</h1>
+					<button class="btn btn-default" ng-click="open()">Create Project!</button>
+				</div>
+			</div>
+			<div>
+				<div class="table-responsive">
+					<table class="table table-bordered">
+						<tr>
+							<th>Product Name</th>
+							<th>Description</th>
+							<th>coordinators</th>
+							<th>select</th>
+						</tr>
+						<tr ng-repeat="project in projects">
+							<td>{{project.name}}</td>
+							<td>{{project.description}}</td>
+							<td><span ng-repeat="coordinator in project.coordinators">
+									{{coordinator}} <span ng-show="!$last">, </span>
+							</span></td>
+							<td><div class="radio">
+									<a href="#/projectdetail/{{project.id}}"> <input
+										type="radio" name="optionsRadios">
+									</a>
+								</div></td>
+						</tr>
+
+					</table>
+				</div>
+			</div>
+		</div>
