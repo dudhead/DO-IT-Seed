@@ -3,6 +3,23 @@
 	<div>
 		<div class="col-md-3"></div>
 		<div class="col-md-9">
+			<div class="col-md-9">
+				<div class="text-center">
+					Filter By Priority
+					<div class="btn-group">
+						<button type="button" class="btn btn-default"
+							ng-click="myFilter = {priority: 'showstopper'}">Show
+							Stopper</button>
+						<button type="button" class="btn btn-default"
+							ng-click="myFilter = {priority: 'high'}">High</button>
+						<button type="button" class="btn btn-default"
+							ng-click="myFilter = {priority: 'medium'}">Medium</button>
+						<button type="button" class="btn btn-default"
+							ng-click="myFilter = {priority: 'low'}">Low</button>
+					</div>
+					Due Date:<input type="date" id="filterDueDate" ng-model="filterByDueDate" required/>
+				</div>
+			</div>
 			<div ng-repeat="task in projectDetails.tasks"">
 				<div class="col-md-2">
 					<!-- For the image  -->
