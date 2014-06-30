@@ -12,7 +12,7 @@ angular.module(
 						templateUrl : 'partials/listproject.html',
 						controller : 'ListProjectController'
 					}).when('/projectdetail/:projectId', {
-						templateUrl : 'partials/projectdetail.html',
+						templateUrl : 'partials/task.html',
 						controller : 'ProjectDetailController'
 					}).otherwise({
 						redirectTo : '/listproject'

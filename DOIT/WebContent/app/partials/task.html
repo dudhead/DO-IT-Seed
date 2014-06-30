@@ -1,39 +1,55 @@
-<div class="col-sm-1-12 task-item" ng-repeat="task in tasks|bycontributor:selectedContributor|byPriority:priorityFilters">
-    <div class="col-sm-1">
-      <span ng-class="{task.isComplete: 'glyphicon glyphicon-star', task.isClosed: 'glyphicon glyphicon-close'}"></span>
-      <small>Pending</small>
-    </div>
-    <div class="col-sm-11">
-        <div class="col-sm-8">
-          <a href="#">
-            <span ng-bind="task.task"></span>
-          </a>
-          <p class="task-description" ng-bind="task.description">
-          </p>
-        </div>
-        <div class="col-sm-4">
-            <ul class="nav nav-pills task-actions">
-              <li><a href="#edit">Edit</a></li>
-              <li><a ng-click="markComplete(task)">Complete</a></li>
-              <li><a ng-click="closeTask(task)">Close</a></li>
-            </ul>
-            <ul style="list-style:none; padding:13px">
-              <li>
-                <strong>Assign To:</strong>
-                &nbsp;
-                <span ng-bind="getContributorName(task.assignedTo)"></span>
-              </li>
-              <li>
-                <strong>Created At:</strong>
-                &nbsp;
-                <span ng-bind="task.createdAt"></span>
-              </li>
-              <li>
-                <strong>Due Date:</strong>
-                &nbsp;
-                <span ng-bind="task.dueDate"></span>
-              </li>
-            </ul>
-        </div>
-    </div>
+<div class="jumbotron">
+	<h2>{{projectDetails.name}}</h2>
+	<h3>{{projectDetails.description}}</h3>
+	<button class="btn btn-default" ng-click="open()">Add
+		Task!</button>
+
+	<div class="container">
+		<div class="text-center">
+			Filter By Priority
+			<div class="btn-group">
+				<button type="button" class="btn btn-default"
+					ng-click="myFilter = {priority: 'showstopper'}">Show
+					Stopper</button>
+				<button type="button" class="btn btn-default"
+					ng-click="myFilter = {priority: 'high'}">High</button>
+				<button type="button" class="btn btn-default"
+					ng-click="myFilter = {priority: 'medium'}">Medium</button>
+				<button type="button" class="btn btn-default"
+					ng-click="myFilter = {priority: 'low'}">Low</button>
+			</div>
+			Due Date:<input type="date" id="filterDueDate"
+				ng-model="filterByDueDate" required />
+		</div>
+		<div class="col-sm-1-12 task-item"
+			ng-repeat="task in projectDetails.tasks|filter:myFilter">
+			<div class="col-sm-1">
+				<span
+					ng-class="{task.isComplete: 'glyphicon glyphicon-star', task.isClosed: 'glyphicon glyphicon-close'}"></span>
+				<small>Pending</small>
+			</div>
+			<div class="col-sm-11">
+				<div class="col-sm-8">
+					<a href="#"> <span ng-bind="task.task"></span>
+					</a>
+					<p class="task-description" ng-bind="task.description"></p>
+				</div>
+				<div class="col-sm-4">
+					<ul class="nav nav-pills task-actions">
+						<li><a href="#edit">Edit</a></li>
+						<li><a ng-click="markComplete(task)">Complete</a></li>
+						<li><a ng-click="closeTask(task)">Close</a></li>
+					</ul>
+					<ul style="list-style: none; padding: 13px">
+						<li><strong>Assign To:</strong> &nbsp; <span
+							ng-bind="task.assignedTo"></span></li>
+						<li><strong>Created At:</strong> &nbsp; <span
+							ng-bind="task.createdAt"></span></li>
+						<li><strong>Due Date:</strong> &nbsp; <span
+							ng-bind="task.dueDate"></span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
