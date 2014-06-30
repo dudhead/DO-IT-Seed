@@ -15,12 +15,20 @@ module.controller('ListProjectController', function($scope, ProjectsService) {
 module.controller('ProjectDetailController', [ '$scope', '$routeParams','ProjectsService',
 		function($scope, $routeParams, ProjectsService) {
 			var projectdetails = ProjectsService.list();
+			
 			for (var i = 0; i < projectdetails.length; i++) {
 				var obj = projectdetails[i];
 				if (obj["id"] === parseInt($routeParams.projectId)) {
 					$scope.projectDetails = obj;
+					$scope.ii=i;
 				}
 			}
+			
+			$scope.saveTask=function(){
+				var obj=[{"tasks":this.newTask.task}];
+				projectdetails[$scope.ii].tasks.push(obj);
+//				ProjectsService.saveTask($scope.newTask);
+			};
 		} ]);
 
 var ModalDemoCtrl = function($scope, $modal, $log) {

@@ -1,8 +1,58 @@
 <div class="jumbotron">
 	<h2>{{projectDetails.name}}</h2>
 	<h3>{{projectDetails.description}}</h3>
-	<button class="btn btn-default" ng-click="open()">Add
-		Task!</button>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div ng-controller="ModalDemoCtrl">
+				<script type="text/ng-template" id="myModalContent.html">
+
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true" ng-click="cancel()">&times;</button>
+			<h4 class="modal-title " id="myModalLabel">Create Task	</h4>
+		</div>
+		<div class="modal-body">
+			<label class="col-md-12"> Task</label>
+			<div class="col-md-9" id="name">
+				<input type="text" class="form-control" id="name"
+					placeholder="What is your Task Name?" required="required" ng-model="newTask.task" />
+			</div>
+
+			<label class="col-md-12 ">Priority</label>
+			<div class="col-md-9">
+				<input type="text" class="form-control" id="desc"
+					placeholder="Enter Priority" multiple="multiple" ng-model="newTask.priority" />
+			</div>
+
+			<label class="col-md-12">Due Date</label>
+			<div class="col-md-9">
+				<input type="text" class="form-control" name="contact"
+					placeholder="when is the due date" ng-model="newTask.dueDate"/>
+			</div>
+			<label class="col-md-12">Assigned to </label>
+			<div class="col-md-9">
+				<input type="text" class="form-control" name="contact"
+					placeholder="when is the due date" ng-model="newTask.assignedTo"/>
+			</div>
+			<label class="col-md-12">Description</label>
+			<div class="col-md-9">
+				<input type="text" class="form-control" name="contact"
+					placeholder="when is the due date" ng-model="newTask.description"/>
+			</div>
+
+		</div>
+		<div class="modal-footer" ng-controller="ProjectDetailController">
+			<button class="btn btn-primary" ng-click="saveTask()">Save</button>
+		</div>
+
+
+    </script>
+
+				<button class="btn btn-default" ng-click="open()">Add Task!</button>
+			</div>
+		</div>
+	</div>
 
 	<div class="container">
 		<div class="text-center">
@@ -22,7 +72,7 @@
 				ng-model="filterByDueDate" required />
 		</div>
 		<div class="col-sm-1-12 task-item"
-			ng-repeat="task in projectDetails.tasks|filter:myFilter">
+			ng-repeat="task in projectDetails.tasks|filter:myFilter|filter:filterByDueDate">
 			<div class="col-sm-1">
 				<span
 					ng-class="{task.isComplete: 'glyphicon glyphicon-star', task.isClosed: 'glyphicon glyphicon-close'}"></span>

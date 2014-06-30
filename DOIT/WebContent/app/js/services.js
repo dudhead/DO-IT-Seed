@@ -13,7 +13,6 @@ module.service('ProjectsService', function() {
 		"description" : "Dummy Description",
 		"coordinators" : [ "Rahul", "Nagarjun" ],
 		"tasks" : [ {
-			"id" : 11,
 			"task" : "Create Basic Scaffold",
 			"description" : "create basic project something oyulike ",
 			"dueDate" : "6/20/2014",
@@ -23,9 +22,7 @@ module.service('ProjectsService', function() {
 			"assignedTo" : "Nagarjun",
 			"priority" : "high"
 
-		},
-		{
-			"id" : 12,
+		}, {
 			"task" : "Create advanced Scaffold",
 			"description" : "create advanced project something oyulike ",
 			"dueDate" : "6/20/2014",
@@ -34,8 +31,7 @@ module.service('ProjectsService', function() {
 			"isClosed" : "false",
 			"assignedTo" : "Nagarjun",
 			"priority" : "low"
-
-		}],
+		} ],
 	}, {
 		"id" : 2,
 		"name" : "DONOT OPEN THIS ",
@@ -62,5 +58,9 @@ module.service('ProjectsService', function() {
 		// }
 		// }
 		// }
+	};
+
+	this.saveTask = function(task) {
+		projects.tasks.push(task);
 	};
 });
